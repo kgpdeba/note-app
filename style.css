@@ -1,0 +1,119 @@
+body {
+  /* variables -> light-mode */
+  --theme-bg: rgb(255, 255, 255);
+  --theme-bg-toogler: rgb(0, 0, 0);
+  --theme-bg-card: rgb(66, 36, 36);
+  --theme-text-color: rgb(255, 255, 255);
+  /* -------------- variables end ---------------- */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--theme-bg);
+}
+
+body.dark {
+  --theme-bg: rgb(0, 0, 0);
+  --theme-bg-toogler: rgb(255, 255, 255);
+  --theme-bg-card: white;
+  --theme-text-color: rgb(0, 0, 0);
+}
+
+.container {
+  width: 60%;
+  margin: auto;
+}
+
+.nav-header {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  color: rgb(248, 175, 27);
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.theme-toogler {
+  display: flex;
+  border: 1px solid var(--theme-bg-toogler);
+  border-radius: 25px;
+}
+.theme-toogler > img {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: var(--theme-bg-toogler);
+  width: 20px;
+  height: 20px;
+}
+
+.light-mode {
+  visibility: visible;
+}
+.dark .light-mode {
+  visibility: hidden;
+}
+.dark-mode {
+  visibility: hidden;
+}
+.dark .dark-mode {
+  visibility: visible;
+}
+
+.card {
+  color: var(--theme-text-color);
+  margin: 10px 0;
+  width: 45%;
+  padding: 20px 15px;
+  border-radius: 10px;
+  background-color: var(--theme-bg-card);
+  display: flex;
+  flex-direction: column;
+}
+.card > .card-header {
+  letter-spacing: 0.1rem;
+  text-align: justify;
+  font-weight: 600; 
+}
+
+.card > .card-content {
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: justify;
+}
+
+.card-grp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .card-grp {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --theme-bg: rgb(255, 255, 255);
+    --theme-bg-toogler: rgb(0, 0, 0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body.dark {
+    --theme-bg: rgb(0, 0, 0);
+    --theme-bg-toogler: rgb(255, 255, 255);
+  }
+}
